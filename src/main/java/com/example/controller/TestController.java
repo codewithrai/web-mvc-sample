@@ -6,12 +6,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/home")
 public class TestController {
 
-    @RequestMapping(method= RequestMethod.GET)
-    @ResponseBody
-    public String hello() {
-        return "Welcome to Spring MVC";
+    @RequestMapping(value = "/home", method= RequestMethod.GET)
+    public String home() {
+        System.out.println("Hello");
+        return "index";
+    }
+
+    @RequestMapping(value = "/about", method= RequestMethod.GET)
+    public String about() {
+        System.out.println("Hello");
+        return "about";
     }
 }

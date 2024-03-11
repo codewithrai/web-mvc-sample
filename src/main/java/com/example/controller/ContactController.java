@@ -25,7 +25,11 @@ public class ContactController {
 //MOdel attributes are using to accept data from user input form (Browser)
     {
         System.out.println(user);
-        this.userService.createUser(user);
+        if(user.getUserName().isEmpty()) {
+            return "redirect:/contact";
+        }
+        int createdUser = this.userService.createUser(user);
+        model.addAttribute("msg", createdUser + " Users hase been created");
         return "success";
     }
 //    @RequestParam("email") String userEmail ,
